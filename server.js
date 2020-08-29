@@ -16,7 +16,7 @@ console.log(dbNotes);
 
 const updateDb = notesDb => {
     fs.writeFileSync(
-        path.join(__dirname, "./db.json"),
+        path.join(__dirname, "/db.json"),
         JSON.stringify(notesDb),
         
         )
@@ -45,7 +45,7 @@ app.delete("/api/notes/:id",  (req, res) => {
     let id = req.params.id;
     let x = 1;
     delete notesDb[id - 1];
-    // console.log(notesDb);
+    
     updateDb(notesDb);
     res.send(notesDb);
 });
